@@ -11,3 +11,5 @@ def chamandotelainicial(request):
     contexto= {'produtos':produtos}
     return render(request, 'telainicial.html', contexto)
 
+def chamandomenu (request):
+    return render(request, 'menu.html')

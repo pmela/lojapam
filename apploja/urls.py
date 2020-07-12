@@ -5,5 +5,6 @@ app_name = "apploja"
 
 urlpatterns = [
     path('telaDeLogin', chamandohtml, name='telaDeLogin'),
-    path('telainicial', chamandotelainicial, name='telainicial')
+    path('telainicial', chamandotelainicial, name='telainicial'),
+    path('menu', chamandomenu, name='menu')
 ]

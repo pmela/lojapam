@@ -1,29 +1,33 @@
 {% extends "menu.html" %}
-{% block menu %}
+{%block menu%}
 
 <table class="table table-hover">
     <tbody>
 
-        <div class="row" style="">
-            {%for produto in produtos%}
+    <div class="row" style="">
+        {%for produto in produtos%}
 
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
 
-                        <h1>Roupa Feminina</h1>
+                    <h1>Roupa Feminina</h1>
 
-                        <img src="{{ produto.imagem.url }}">
-                        </tr>
-                    </div>
+                    <img src="{{ produto.imagem.url }}" width="298" height="320">
+
+                    </tr>
                 </div>
             </div>
-
-            {%endfor%}
+            <br>
         </div>
+        {%endfor%}
     </div>
+
     </tbody>
 
 </table>
 
-{% endblock %}
+
+{%endblock%}
+
+
