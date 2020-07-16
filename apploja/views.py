@@ -19,3 +19,5 @@ def chamandotelainicial(request, nome_categoria=None):
 
 def chamandomenu(request):
     return render(request, 'menu.html')
+
+

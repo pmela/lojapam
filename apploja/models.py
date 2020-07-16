@@ -2,13 +2,13 @@ from django.db import models
 
 
 class Usuario(models.Model):
-    nome = models.CharField(max_length=128)
-    data_nascimento = models.DateField(max_length=8)
+    nome = models.CharField(max_length=128,)
+    data_nascimento = models.DateField(max_length=8, null=True)
     email = models.EmailField(max_length=64, unique=True)
-    cpf = models.CharField(max_length=16, unique=True)
+    cpf = models.CharField(max_length=16, unique=True, null=True)
     senha = models.CharField(max_length=32)
-    telefone = models.ForeignKey('Telefone', on_delete=models.PROTECT)
-    endereco = models.ForeignKey('Endereco', on_delete=models.PROTECT)
+    telefone = models.ForeignKey('Telefone', on_delete=models.PROTECT, null=True)
+    endereco = models.ForeignKey('Endereco', on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return self.nome

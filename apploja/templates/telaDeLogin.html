@@ -19,6 +19,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 <!-- Custom styles for this template -->
 <link rel="stylesheet" type="text/css" href="{% static 'blog.css' %}">
@@ -30,11 +42,7 @@
     <img class="mb-4" src="{% static 'USUARIO.png' %}" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Ensira seu login</h1>
     <label for="inputEmail" class="sr-only">Email</label>
-
-
     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-
-
     <label for="inputPassword" class="sr-only">Senha</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
     <div class="checkbox mb-3">
@@ -42,6 +50,67 @@
             <input type="checkbox" value="remember-me"> Lembrar de mim
         </label>
     </div>
+    <div class="g-recaptcha"
+         data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
+    <button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Cria novo Usuário
+    </button>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col" align="left">
+                        <label>Nome: </label>
+                    </div>
+                    <input type="email_cadastro" id="nome" class="form-control" placeholder="Nome"
+                           required
+                           autofocus>
+                    <div class="col" align="left">
+                        <label>Email: </label>
+                    </div>
+                    <input type="email_cadastro" id="inputEmail_cadastro" class="form-control" placeholder="Email"
+                           required
+                           autofocus>
+                    <div class="col" align="left">
+                        <label>Senha: </label>
+                    </div>
+                    <input type="password" id="inputPassword_cadastro" class="form-control" placeholder="Senha"
+                           required
+                           autofocus>
+                    <div class="col" align="left">
+                        <label>Confirme a senha: </label>
+                    </div>
+                    <input type="password" id="confirmasenha" class="form-control" placeholder="Confirme a senha"
+                           required>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <p class="mt-5 mb-3 text-muted">PXFASHION</p>
 </form>
