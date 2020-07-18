@@ -8,5 +8,5 @@ urlpatterns = [
     path('telainicial/<str:nome_categoria>', chamandotelainicial, name='telainicial'),
     path('', chamandotelainicial, name='telainicialall'),
     path('menu', chamandomenu, name='menu'),
-    path('cadastraUsuario', cadastraUsuario, name='cadastraUsuario')
+    path('cadastraUsuario', cadastraUsuario, name='cadastraUsuario'),
 ]

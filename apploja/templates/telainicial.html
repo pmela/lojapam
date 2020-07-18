@@ -3,18 +3,13 @@
 
 <table class="table table-hover">
     <tbody>
-
     <div class="row" style="">
-        {%for produto in produtos%}
-
+        {%for produto in produto_paginado%}
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-
                     <h1>{{produto.nome}}</h1>
-
                     <img src="{{ produto.imagem.url }}" width="298" height="320">
-
                     </tr>
                 </div>
             </div>
@@ -22,10 +17,26 @@
         </div>
         {%endfor%}
     </div>
-
     </tbody>
-
 </table>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <li class="page-item disabled">
+            {% if produto_paginado.has_previous %}
+            <a href="?page={{ produto_paginado.previous_page_number }}"> Anterior </a>
+            {% endif %}
+        </li>
+        <li class="page-item"><span class="current">
+            Pagina {{ produto_paginado.number }} de {{ produto_paginado.paginator.num_pages }}
+        </span></li>
+        <li class="page-item">
+            {% if produto_paginado.has_next %}
+            <a href="?page={{ produto_paginado.next_page_number }}"> Proxima </a>
+            {% endif %}
+        </li>
+    </ul>
+</nav>
 
 
 {%endblock%}

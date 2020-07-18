@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from .models import *
+from django.core.paginator import Paginator
+
+
+
 
 
 def chamandohtml(request):
@@ -12,7 +16,12 @@ def chamandotelainicial(request, nome_categoria=None):
     else:
         categoria = Categoria.objects.get(nome=nome_categoria)
         produtos = Produto.objects.filter(categoria=categoria)
-    contexto = {'produtos': produtos}
+
+    paginado = Paginator(produtos, 6)  # Show 25 contacts per page.
+
+    numero_pagina = request.GET.get('page')
+    produto_paginado = paginado.get_page(numero_pagina)
+    contexto = {'produto_paginado': produto_paginado}
 
     return render(request, 'telainicial.html', contexto)
 
@@ -39,3 +48,4 @@ def cadastraUsuario(request):
             print("senha não confere.")
 
     return render(request, 'telaDeLogin.html')
+
