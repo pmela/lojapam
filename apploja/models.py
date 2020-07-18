@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Usuario(models.Model):
-    nome = models.CharField(max_length=128,)
+    nome = models.CharField(max_length=128, )
     data_nascimento = models.DateField(max_length=8, null=True)
     email = models.EmailField(max_length=64, unique=True)
     cpf = models.CharField(max_length=16, unique=True, null=True)
@@ -60,8 +60,7 @@ class Estoque(models.Model):
     tamanho = models.CharField(max_length=16)
     marca = models.CharField(max_length=32)
     material = models.CharField(max_length=32)
-    produto= models.ForeignKey('Produto',on_delete=models.PROTECT)
-
+    produto = models.ForeignKey('Produto', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.quantidade
@@ -72,7 +71,6 @@ class Produto(models.Model):
     categoria = models.ForeignKey('Categoria', on_delete=models.PROTECT)
     imagem = models.FileField(upload_to='fotos/')
 
-
     def __str__(self):
         return self.nome
 
@@ -81,9 +79,7 @@ class Venda(models.Model):
     produto_vendido = models.CharField(max_length=32)
     data_venda = models.DateField(max_length=8)
     hora_venda = models.TimeField(max_length=8)
-    produto= models.ForeignKey('Produto',on_delete=models.PROTECT)
-
+    produto = models.ForeignKey('Produto', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.produto_vendido
-
