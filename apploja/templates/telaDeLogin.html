@@ -22,46 +22,41 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 <!-- Custom styles for this template -->
 <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
 </head>
 <body class="text-center">
-<form class="form-signin">
+
+<form class="form-signin" action="{% url 'apploja:validaUsuario' %}" method="post">
+    {% csrf_token %}
 
     <img class="mb-4" src="{% static 'USUARIO.png' %}" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Ensira seu login</h1>
-    <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputPassword" class="sr-only">Senha</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <label for="email_logar" class="sr-only">Email</label>
+    <input type="email" name="email_logar" id="email_logar" class="form-control"
+           placeholder="Email"
+           required
+           autofocus>
+    <label for="senha_logar" class="sr-only">Senha</label>
+    <input type="password" name="senha_logar" id="senha_logar" class="form-control"
+           placeholder="Senha">
     <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> Lembrar de mim
         </label>
     </div>
+
+
     <div class="g-recaptcha"
          data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
+
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" class="btn btn-primary">Logar</button>
+
+
     <button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Cria novo Usuário
     </button>
     <p class="mt-5 mb-3 text-muted">PXFASHION</p>
@@ -75,57 +70,56 @@
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
 
+</form>
+<!-- Modal -->
 
-    <!-- Modal -->
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Cadastro</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="{% url 'apploja:cadastraUsuario' %}" method="post">
-                        {% csrf_token %}
-                        <div class="col" align="left">
-                            <label>Nome: </label>
-                        </div>
-                        <input type="text" name="nome_cadastro" id="nome_cadastro" class="form-control"
-                               placeholder="Nome"
-                               required
-                               autofocus>
-                        <div class="col" align="left">
-                            <label>Email: </label>
-                        </div>
-                        <input type="email" name="email_cadastro" id="email_cadastro" class="form-control"
-                               placeholder="Email"
-                               required
-                               autofocus>
-                        <div class="col" align="left">
-                            <label>Senha: </label>
-                        </div>
-                        <input type="password" name="senha_cadastro" id="senha_cadastro" class="form-control"
-                               placeholder="Senha"
-                        >
-                        <div class="col" align="left">
-                            <label>Confirme a senha: </label>
-                        </div>
-                        <input type="password" name="confirmasenha" id="confirmasenha" class="form-control"
-                               placeholder="Confirme a senha"
-                               required>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-                        </div>
-                    </form>
-                </div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <form action="{% url 'apploja:cadastraUsuario' %}" method="post">
+                    {% csrf_token %}
+                    <div class="col" align="left">
+                        <label>Nome: </label>
+                    </div>
+                    <input type="text" name="nome_cadastro" id="nome_cadastro" class="form-control"
+                           placeholder="Nome"
+                           required
+                           autofocus>
+                    <div class="col" align="left">
+                        <label>Email: </label>
+                    </div>
+                    <input type="email" name="email_cadastro" id="email_cadastro" class="form-control"
+                           placeholder="Email"
+                           required
+                           autofocus>
+                    <div class="col" align="left">
+                        <label>Senha: </label>
+                    </div>
+                    <input type="password" name="senha_cadastro" id="senha_cadastro" class="form-control"
+                           placeholder="Senha"
+                    >
+                    <div class="col" align="left">
+                        <label>Confirme a senha: </label>
+                    </div>
+                    <input type="password" name="confirmasenha" id="confirmasenha" class="form-control"
+                           placeholder="Confirme a senha"
+                           required>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
+</div>
 
-</form>

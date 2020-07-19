@@ -49,3 +49,20 @@ def cadastraUsuario(request):
 
     return render(request, 'telaDeLogin.html')
 
+def validaUsuario (request):
+    if request.method == 'POST':
+        email_logar = request.POST['email_logar']
+        senha_logar = request.POST['senha_logar']
+        if Usuario.objects.filter(email=email_logar).exists():
+            if Usuario.objects.filter(senha=senha_logar).exists():
+                return chamandotelainicial(request)
+            else:
+                print("senha errada")
+        else:
+            print("email errado")
+
+    return render(request, 'telaDeLogin.html')
+
+
+
+

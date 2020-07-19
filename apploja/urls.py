@@ -9,4 +9,5 @@ urlpatterns = [
     path('', chamandotelainicial, name='telainicialall'),
     path('menu', chamandomenu, name='menu'),
     path('cadastraUsuario', cadastraUsuario, name='cadastraUsuario'),
+    path('validaUsuario', validaUsuario, name='validaUsuario'),
 ]
