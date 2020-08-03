@@ -17,7 +17,7 @@ def chamandotelainicial(request, nome_categoria=None):
         categoria = Categoria.objects.get(nome=nome_categoria)
         produtos = Produto.objects.filter(categoria=categoria)
 
-    paginado = Paginator(produtos, 6)  # Show 25 contacts per page.
+    paginado = Paginator(produtos, 8)  # Show 25 contacts per page.
 
     numero_pagina = request.GET.get('page')
     produto_paginado = paginado.get_page(numero_pagina)
@@ -28,6 +28,9 @@ def chamandotelainicial(request, nome_categoria=None):
 
 def chamandomenu(request):
     return render(request, 'menu.html')
+
+def chamandovenda(request):
+    return render(request, 'venda.html')
 
 
 def cadastraUsuario(request):
