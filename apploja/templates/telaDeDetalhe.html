@@ -1,0 +1,29 @@
+{% extends "menu.html" %}
+{%block menu%}
+{% load static %}
+<div class="row">
+    <div class="col">
+
+        <img align="right" src="{{ produto.imagem.url }}" width="300" height="350">
+
+    </div>
+    <div class="col">
+        {%for estoque in estoques%}
+        {{estoque.nome}}<br>
+        Cor: {{estoque.cor}}<br>
+        Tamanho: {{estoque.tamanho}}<br>
+        Quantidade: {{estoque.quantidade}}<br>
+        Marca: {{estoque.marca}}<br>
+        Material: {{estoque.material}}<br>
+        {%endfor%}
+
+    </div>
+
+
+</div>
+
+
+{%endblock%}
+
+
+

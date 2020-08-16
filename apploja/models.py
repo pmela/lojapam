@@ -70,6 +70,7 @@ class Produto(models.Model):
     nome = models.CharField(max_length=64)
     categoria = models.ForeignKey('Categoria', on_delete=models.PROTECT)
     imagem = models.FileField(upload_to='fotos/')
+    estoque: [Estoque]
 
     def __str__(self):
         return self.nome
