@@ -71,6 +71,7 @@ class Produto(models.Model):
     categoria = models.ForeignKey('Categoria', on_delete=models.PROTECT)
     imagem = models.FileField(upload_to='fotos/')
     estoque: [Estoque]
+    valor= models.FloatField()
 
     def __str__(self):
         return self.nome

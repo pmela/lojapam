@@ -7,6 +7,9 @@ def chamandohtml(request):
     return render(request, 'telaDeLogin.html')
 
 
+def chamandoindex(request):
+    return render(request, 'index.html')
+
 def chamandotelainicial(request, nome_categoria=None):
     if nome_categoria == None:
         produtos = Produto.objects.all()
@@ -20,6 +23,7 @@ def chamandotelainicial(request, nome_categoria=None):
         for estoque in estoques:
             if produto.id == estoque.produto.id:
                 produto.estoque.append(estoque)
+
 
     paginado = Paginator(produtos, 8)  # Show 25 contacts per page.
 
@@ -54,11 +58,11 @@ def chamandovenda(request):
     return render(request, 'venda.html')
 
 
-def chamandodetalhe(request,id=None):
-    produto=Produto.objects.get(id=id)
-    estoques=Estoque.objects.filter(produto=produto)
-    contexto={'produto':produto, 'estoques':estoques}
-    return render(request, 'telaDeDetalhe.html',contexto)
+def chamandodetalhe(request, id=None):
+    produto = Produto.objects.get(id=id)
+    estoques = Estoque.objects.filter(produto=produto)
+    contexto = {'produto': produto, 'estoques': estoques}
+    return render(request, 'telaDeDetalhe.html', contexto)
 
 
 def cadastraUsuario(request):

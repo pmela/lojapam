@@ -7,6 +7,7 @@ urlpatterns = [
     path('telaDeLogin', chamandohtml, name='telaDeLogin'),
     path('telainicial/<str:nome_categoria>', chamandotelainicial, name='telainicial'),
     path('', chamandotelainicial, name='telainicialall'),
+    path('index', chamandoindex, name='index'),
     path('menu', chamandomenu, name='menu'),
     path('venda', chamandovenda, name='venda'),
     path('telaDeDetalhe/<int:id>/', chamandodetalhe, name='telaDeDetalhe'),
