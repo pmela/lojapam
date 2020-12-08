@@ -1,109 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 {% load static %}
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v4.0.1">
-    <title>Blog Template · Bootstrap</title>
+    <meta name="author" content="">
 
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/blog/">
+    <title>PX Fashon</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-
-
-
-
-
-
-
-
-
-    </style>
     <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <!-- Custom styles for this template -->
-
-
-    <link rel="stylesheet" type="text/css" href="{% static 'blog.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'shop-homepage.css' %}">
+    <!--  <link href="css/shop-homepage.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"/>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
 
 
 </head>
+
 <body>
-<div class="container">
-    <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-                <a class="text-muted" href="#"></a>
-            </div>
-            <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#">PX Fashion</a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-                <a class="text-muted" href="#" aria-label="Search">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
-                         viewBox="0 0 24 24" focusable="false"><title>Search</title>
-                        <circle cx="10.5" cy="10.5" r="7.5"/>
-                        <path d="M21 21l-5.2-5.2"/>
-                    </svg>
-                </a>
-                <form method="get" action="/telaDeLogin">
-                    <button type="submit">Logar</button>
-                    <!--                    <button type="button" class="btn btn-link">Logar</button>-->
-                </form>
-                <!--                <a class="btn btn-sm btn-outline-secondary" href="/telaDeLogin">Logar</a>-->
-                <!--                <a class="btn btn-sm btn-outline-secondary" href="{% url 'apploja:telaDeLogin'%}">Logar</a>-->
-            </div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'apploja:telainicial' %}">PX FASHON</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="far fa-heart"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="far fa-user"></i></a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-cart-plus"></i></a>
+                </li>
+            </ul>
         </div>
-    </header>
-
-    <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='novidades' %}">Novidades</a>
-            <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='moda_intima' %}">Moda
-                intíma</a>
-            <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='feminino' %}">Feminino</a>
-            <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='masculino' %}">Masculino</a>
-            <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='infantil' %}">Infaltil</a>
-            <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='plus_size' %}">Plus Size</a>
-            <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='promocao' %}">Promoção</a>
-        </nav>
     </div>
+</nav>
 
-    <div class="d-flex flex-row">
-        <img src="{% static 'liquida.png' %}" width="1120"
-             height="200" class="d-block w-900" alt="My image">
-    </div>
-    <div class="col">
-        <br>
-        <br>
+<!-- Page Content -->
+<div class="container">
 
+    <div class="row">
+
+        <div class="col-lg-3">
+
+            <h1 class="my-4">Categorias</h1>
+            <div class="list-group">
+                <a class="p-2 text-muted"
+                   href="{% url 'apploja:telainicial' nome_categoria='novidades' %}">Novidades</a>
+                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='moda_intima' %}">Moda
+                    intíma</a>
+                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='feminino' %}">Feminino</a>
+                <a class="p-2 text-muted"
+                   href="{% url 'apploja:telainicial' nome_categoria='masculino' %}">Masculino</a>
+                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='infantil' %}">Infaltil</a>
+                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='plus_size' %}">Plus
+                    Size</a>
+                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='promocao' %}">Promoção</a>
+            </div>
+
+        </div>
+        <!-- /.col-lg-3 -->
         {%block menu%}
-
 
         {%endblock%}
     </div>

@@ -1,29 +1,67 @@
 {% extends "menu.html" %}
 {%block menu%}
 {% load static %}
-<div class="row">
-    <div class="col">
 
-        <img align="right" src="{{ produto.imagem.url }}" width="300" height="350">
+<!--    <div class="card" style="width: 18rem;">-->
 
+<!--        <img align="right" src="{{ produto.imagem.url }}" alt="Card image cap" width="300" height="">-->
+
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="col align-self-center">-->
+
+<!--    <div class="col">-->
+<!--        {%for estoque in estoques%}-->
+<!--        {{estoque.nome}}<br>-->
+<!--        Cor: {{estoque.cor}}<br>-->
+<!--        Tamanho: {{estoque.tamanho}}<br>-->
+<!--        Quantidade: {{estoque.quantidade}}<br>-->
+<!--        Marca: {{estoque.marca}}<br>-->
+<!--        Material: {{estoque.material}}<br>-->
+<!--        {%endfor%}-->
+<!--    </div>-->
+
+
+<div class="col align-self-start">
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="card">
+                <div class="card-body">
+                    {%for estoque in estoques%}
+                    <h5 class="card-title" align="center">{{estoque.nome}}</h5>
+                    {%endfor%}
+                    <img align="right" src="{{ produto.imagem.url }}" alt="Card image cap" width="300" height="">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Descrição do Produto: </h5>
+                    <div class="col">
+                        {%for estoque in estoques%}
+                        {{estoque.nome}}<br>
+                        Cor: {{estoque.cor}}<br>
+                        Tamanho: {{estoque.tamanho}}<br>
+                        Quantidade: {{estoque.quantidade}}<br>
+                        Marca: {{estoque.marca}}<br>
+                        Material: {{estoque.material}}<br>
+                        {%endfor%}
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <a href="{% url 'apploja:venda' %}">
+
+                            <button type="link" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col">
-        {%for estoque in estoques%}
-        {{estoque.nome}}<br>
-        Cor: {{estoque.cor}}<br>
-        Tamanho: {{estoque.tamanho}}<br>
-        Quantidade: {{estoque.quantidade}}<br>
-        Marca: {{estoque.marca}}<br>
-        Material: {{estoque.material}}<br>
-        {%endfor%}
-
-    </div>
-
-
-</div>
-
-
-{%endblock%}
-
+    {%endblock%}
 
 
