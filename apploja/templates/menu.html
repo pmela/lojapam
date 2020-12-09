@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'shop-homepage.css' %}">
     <!--  <link href="css/shop-homepage.css" rel="stylesheet">-->
     <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"/>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
 
@@ -42,11 +43,12 @@
                     <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="far fa-user"></i></a>
+
+                    <a class="nav-link" href=" {% url 'apploja:telaDeLogin' %}"><i class="far fa-user"></i></a>
                 </li>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-cart-plus"></i></a>
+                    <a class="nav-link" href="{% url 'apploja:venda' %}"><i class="fas fa-cart-plus"></i></a>
                 </li>
             </ul>
         </div>
@@ -62,17 +64,10 @@
 
             <h1 class="my-4">Categorias</h1>
             <div class="list-group">
+                {% for categoria in categorias %}
                 <a class="p-2 text-muted"
-                   href="{% url 'apploja:telainicial' nome_categoria='novidades' %}">Novidades</a>
-                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='moda_intima' %}">Moda
-                    intíma</a>
-                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='feminino' %}">Feminino</a>
-                <a class="p-2 text-muted"
-                   href="{% url 'apploja:telainicial' nome_categoria='masculino' %}">Masculino</a>
-                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='infantil' %}">Infaltil</a>
-                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='plus_size' %}">Plus
-                    Size</a>
-                <a class="p-2 text-muted" href="{% url 'apploja:telainicial' nome_categoria='promocao' %}">Promoção</a>
+                   href="{% url 'apploja:telainicial' nome_categoria=categoria.nome %}">{{categoria.nome}}</a>
+                {%endfor%}
             </div>
 
         </div>

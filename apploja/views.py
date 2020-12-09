@@ -10,6 +10,7 @@ def chamandohtml(request):
 def chamandoindex(request):
     return render(request, 'index.html')
 
+
 def chamandotelainicial(request, nome_categoria=None):
     if nome_categoria == None:
         produtos = Produto.objects.all()
@@ -24,30 +25,16 @@ def chamandotelainicial(request, nome_categoria=None):
             if produto.id == estoque.produto.id:
                 produto.estoque.append(estoque)
 
-
     paginado = Paginator(produtos, 8)  # Show 25 contacts per page.
 
     numero_pagina = request.GET.get('page')
     produto_paginado = paginado.get_page(numero_pagina)
-    contexto = {'produto_paginado': produto_paginado}
+    contexto = {
+        'produto_paginado': produto_paginado,
+        'categorias': Categoria.objects.all()
+    }
 
     return render(request, 'telainicial.html', contexto)
-
-
-# def chamandotelainicial(request, estoque=None):
-#     if estoque == None:
-#         produtos = Produto.objects.all()
-#     else:
-#         estoque = Estoque.objects.get(nome=estoque)
-#         produtos = Produto.objects.filter(estoque=estoque)
-#
-#     paginado = Paginator(produtos, 8)  # Show 25 contacts per page.
-#
-#     numero_pagina = request.GET.get('page')
-#     produto_paginado = paginado.get_page(numero_pagina)
-#     contexto = {'produto_paginado': produto_paginado}
-#
-#     return render(request, 'telainicial.html', contexto)
 
 
 def chamandomenu(request):
@@ -55,13 +42,21 @@ def chamandomenu(request):
 
 
 def chamandovenda(request):
-    return render(request, 'venda.html')
+    contexto = {
+        'categorias': Categoria.objects.all()
+    }
+
+    return render(request, 'venda.html', contexto)
 
 
 def chamandodetalhe(request, id=None):
     produto = Produto.objects.get(id=id)
     estoques = Estoque.objects.filter(produto=produto)
-    contexto = {'produto': produto, 'estoques': estoques}
+    contexto = {
+        'produto': produto,
+        'estoques': estoques,
+        'categorias': Categoria.objects.all()
+    }
     return render(request, 'telaDeDetalhe.html', contexto)
 
 
