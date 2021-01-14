@@ -2,88 +2,57 @@
 {%block menu%}
 {% load static %}
 
-<div class="col-lg-9">
 
-    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <img class="d-block img-fluid" src="{% static 'desconto.png' %}" width="1120"
-                     height="200" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block img-fluid" src="{% static 'PROMOCAO.png' %}" width="1120"
-                     height="200" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block img-fluid" src="{% static 'carro.png' %}" width="1120"
-                     height="200" alt="Third slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
 
-    <div class="row">
-
+<table class="table table-hover">
+    <tbody>
+    <div class="row" style="">
         {%for produto in produto_paginado%}
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-
-                <a href="{% url 'apploja:telaDeDetalhe' id=produto.id %}">
-                    <img class="card-img-top" src="{{ produto.imagem.url }}" alt=""></a>
+        <div class="col-md-3">
+            <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">{{produto.nome}}</a>
-                    </h4>
-                    <h5>{{produto.valor}}</h5>
 
+                    <!--                    <img src="{{ produto.imagem.url }}" width="215" height="285">-->
+                    <a class="btn btn-sm btn-outline-secondary"
+                       href="{% url 'apploja:telaDeDetalhe' id=produto.id %}"> <img
+                            src="{{ produto.imagem.url }}" width="215" height="285"></a>
+                    {% for estoque in produto.estoque %}
+                    {{estoque.nome}} <br>
 
-                    <p class="card-text"> Descriçao</p>
+                    Marca: {{estoque.marca}}
+
+                    {%endfor%}
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-
-                </div>
-
             </div>
+            <br>
         </div>
         {%endfor%}
-
-
     </div>
-    <!-- /.row -->
+    </tbody>
+</table>
 
-</div>
-<!-- /.col-lg-9 -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <li class="page-item disabled">
+            {% if produto_paginado.has_previous %}
+            <a href="?page={{ produto_paginado.previous_page_number }}" style="color:#dc79aa;"> Anterior </a>
+            {% endif %}
+        </li>
+        <li class="page-item"><span class="current">
+            Pagina {{ produto_paginado.number }} de {{ produto_paginado.paginator.num_pages }}
+        </span></li>
+        <li class="page-item">
+            {% if produto_paginado.has_next %}
+            <a href="?page={{ produto_paginado.next_page_number }}"> Proxima </a>
+            {% endif %}
+        </li>
+    </ul>
+</nav>
 
-</div>
-<!-- /.row -->
 
-</div>
-<!-- /.container -->
-
-<!-- Footer -->
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
-    </div>
-    <!-- /.container -->
-</footer>
-
-<!-- Bootstrap core JavaScript -->
 
 <script src="{% static 'jquery.min.js' %}"></script>
 <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
-
 {%endblock%}
+
+

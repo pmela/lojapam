@@ -25,7 +25,7 @@ def chamandotelainicial(request, nome_categoria=None):
             if produto.id == estoque.produto.id:
                 produto.estoque.append(estoque)
 
-    paginado = Paginator(produtos, 8)  # Show 25 contacts per page.
+    paginado = Paginator(produtos, 10)  # Show 25 contacts per page.
 
     numero_pagina = request.GET.get('page')
     produto_paginado = paginado.get_page(numero_pagina)
