@@ -7,10 +7,6 @@ def chamandohtml(request):
     return render(request, 'telaDeLogin.html')
 
 
-def chamandoindex(request):
-    return render(request, 'index.html')
-
-
 def chamandotelainicial(request, nome_categoria=None):
     if nome_categoria == None:
         produtos = Produto.objects.all()
@@ -25,20 +21,25 @@ def chamandotelainicial(request, nome_categoria=None):
             if produto.id == estoque.produto.id:
                 produto.estoque.append(estoque)
 
-    paginado = Paginator(produtos, 10)  # Show 25 contacts per page.
+    cores = Estoque.objects.values('cor').distinct()
+    tamanhos = Estoque.objects.values('tamanho').distinct()
+    marcas = Estoque.objects.values('marca').distinct()
+    materiais = Estoque.objects.values('material').distinct()
+
+    paginado = Paginator(produtos, 20)  # Show 25 contacts per page.
 
     numero_pagina = request.GET.get('page')
     produto_paginado = paginado.get_page(numero_pagina)
     contexto = {
         'produto_paginado': produto_paginado,
-        'categorias': Categoria.objects.all()
+        'categorias': Categoria.objects.all(),
+        'cores': cores,
+        'tamanhos': tamanhos,
+        'marcas': marcas,
+        'materiais': materiais
     }
 
     return render(request, 'telainicial.html', contexto)
-
-
-def chamandomenu(request):
-    return render(request, 'menu.html')
 
 
 def chamandovenda(request):
