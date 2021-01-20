@@ -39,29 +39,25 @@ font-family: verdana;
 
 }
 h2   {
-color:#7b3e12;
+color:#dc79aa;
 font-family: verdana;
 
 }
 h3   {
-color:#dc79aa;
+color:black;
 font-family: verdana;
 
 }
 p    {
-color:#dc79aa;
+color:black;
 font-family: verdana;
 }
 a    {
-color:#dc79aa;
+color:black;
 }
-button {
-color: #dc79aa;
-border-color: #dc79aa;
-}
-div {
-border-color: #dc79aa;
-}
+
+
+
 
 
 
@@ -108,7 +104,6 @@ border-color: #dc79aa;
 <div class="col-md-auto">
     <div class="container-fluid">
 
-        <h3 align="center" style="color:fbe2f3;" class="my-2"><b>Categorias </b></h3>
         <ul class="nav">
 
             {% for categoria in categorias %}
@@ -122,40 +117,13 @@ border-color: #dc79aa;
 
         </ul>
         <div class="row">
-            <div class="col-md-3">
-                <p><b> CORES: </b></p>
-                {% for cor in cores %}
-                <a class="nav-link active"
-                   href="{% url 'apploja:telainicial' %}">{{cor.cor}}</a>
 
-                {%endfor%}
-                <p><b> TAMANHOS: </b></p>
-                {% for tamanho in tamanhos %}
-                <a class="nav-link active"
-                   href="{% url 'apploja:telainicial' %}"> <span class="border  border-danger p-2 mb-3">{{tamanho.tamanho}}</span></a>
 
-                {%endfor%}
-                <p><b> MARCAS: </b></p>
-                {% for marca in marcas %}
-                <a class="nav-link active"
-                   href="{% url 'apploja:telainicial' %}"> {{marca.marca}}</a>
-
-                {%endfor%}
-                <p><b> MATERIAIS: </b></p>
-                {% for material in materiais %}
-                <a class="nav-link active"
-                   href="{% url 'apploja:telainicial' %}"> {{material.material}}</a>
-
-                {%endfor%}
-
-            </div>
-
-            <div class="col-md-9">
-                {%block menu%}
-                {%endblock%}
-            </div>
+            {%block menu%}
+            {%endblock%}
         </div>
     </div>
+
     <!-- /.col-lg-3 -->
 
 

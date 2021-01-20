@@ -63,7 +63,7 @@ class Estoque(models.Model):
     produto = models.ForeignKey('Produto', on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.quantidade
+        return self.nome
 
 
 class Produto(models.Model):

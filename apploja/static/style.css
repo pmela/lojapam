@@ -1,3 +1,35 @@
-.bg-color{
-background-color: #fbe2f3 !important
+.hTIdOm {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+* {
+    box-sizing: border-box;
+}
+.jdbplj {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid rgb(189, 189, 189);
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
+    margin-right: 8px;
+    margin-top: 4px;
+}
+.jIRLkr {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    z-index: 2;
+    line-height: 40px;
+    text-align: center;
+    color: rgb(114, 114, 114);
+    font-size: 12px;
+    font-family: "Open Sans", arial, sans-serif;
+    font-weight: 400;
 }

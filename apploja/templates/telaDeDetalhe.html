@@ -2,26 +2,6 @@
 {%block menu%}
 {% load static %}
 
-<!--    <div class="card" style="width: 18rem;">-->
-
-<!--        <img align="right" src="{{ produto.imagem.url }}" alt="Card image cap" width="300" height="">-->
-
-<!--    </div>-->
-<!--</div>-->
-
-<!--<div class="col align-self-center">-->
-
-<!--    <div class="col">-->
-<!--        {%for estoque in estoques%}-->
-<!--        {{estoque.nome}}<br>-->
-<!--        Cor: {{estoque.cor}}<br>-->
-<!--        Tamanho: {{estoque.tamanho}}<br>-->
-<!--        Quantidade: {{estoque.quantidade}}<br>-->
-<!--        Marca: {{estoque.marca}}<br>-->
-<!--        Material: {{estoque.material}}<br>-->
-<!--        {%endfor%}-->
-<!--    </div>-->
-
 
 <div class="col align-self-start">
     <br>
@@ -48,7 +28,7 @@
 
                         Cores: {{estoque.cor}}<br>
 
-                        Tamanhos: <span class="border  border-danger p-1 mb-2">{{estoque.tamanho}}<br>
+                        Tamanhos: <span class="border p-1 mb-2">{{estoque.tamanho}}<br>
                         </span>
                         Quantidade: {{estoque.quantidade}}<br>
                         Marca: {{estoque.marca}}<br>
@@ -62,15 +42,10 @@
 
 
                     <div class="border border-light p-2 mb-3">
-
                         <div class="text-center">
-                            <ul class="nav content">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="{% url 'apploja:telaDeDetalhe' id=produto.id %}"> <i class="fas fa-shopping-bag"></i> Comprar</a>
-                                </li>
-                            </ul>
-
+                            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Comprar</button>
                         </div>
+                        <!--                        href="{% url 'apploja:telaDeDetalhe' id=produto.id %}-->
 
                     </div>
                 </div>
