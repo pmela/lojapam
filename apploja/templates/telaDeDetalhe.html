@@ -24,20 +24,22 @@
                     <h5 class="card-title">Descrição do Produto: </h5>
                     <div class="col">
                         {%for estoque in estoques%}
-                        {{estoque.nome}}<br>
-
-                        Cores: {{estoque.cor}}<br>
-
-                        Tamanhos: <span class="border p-1 mb-2">{{estoque.tamanho}}<br>
-                        </span>
-                        Quantidade: {{estoque.quantidade}}<br>
-                        Marca: {{estoque.marca}}<br>
-
+                        {{estoque.produto.nome}}
+                        <br>
+                        Quantidade: {{estoque.quantidade}}
+                        <br>
+                        Marca: {{estoque.marca}}
+                        <br>
                         Material: {{estoque.material}}
-
+                        <br>
+                        Cor: {{estoque.cor}}
+                        <br>
+                        Tamanho: {{estoque.tamanho}}
+                        <br>
+                        Valor: R$ {{estoque.produto.valor}}
                         <br>
                         {%endfor%}
-                    </div>
+
                     <br>
 
 
