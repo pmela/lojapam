@@ -4,9 +4,7 @@
 
 
 <div class="col align-self-start">
-    <br>
-    <br>
-    <br>
+
     <div class="row">
         <div class="col-sm-5">
             <div class="card">
@@ -40,21 +38,23 @@
                         <br>
                         {%endfor%}
 
-                    <br>
+                        <br>
 
 
-                    <div class="border border-light p-2 mb-3">
-                        <div class="text-center">
-                            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Comprar</button>
+                        <div class="border border-light p-2 mb-3">
+
+                            <div class="text-center">
+                                <a href="{% url 'apploja:venda' %}" type="button"
+                                   class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Comprar</a>
+                            </div>
+                            <!--                                                href="{% url 'apploja:telaDeDetalhe' id=produto.id %}-->
+
                         </div>
-                        <!--                        href="{% url 'apploja:telaDeDetalhe' id=produto.id %}-->
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-{%endblock%}
+    {%endblock%}
 
 
