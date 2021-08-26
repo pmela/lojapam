@@ -45,44 +45,30 @@
 <br>
 <br>
 
-<table class="table table-hover">
-    <tbody>
-    <div class="row" style="">
-        {%for produto in produto_paginado%}
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">
-
-                    <!--                    <img src="{{ produto.imagem.url }}" width="215" height="285">-->
-                    <a class="btn btn-sm btn-outline-secondary"
-                       href="{% url 'apploja:telaDeDetalhe' id=produto.id %}"> <img
-                            src="{{ produto.imagem.url }}" width="215" height="285"></a>
-                    {% for estoque in produto.estoque %}
-                    <div class="row">
-                        {{estoque.produto.nome}}<br>
-                        R$ {{estoque.produto.valor}}<br>
-
-                        <div class="border border-light p-2 mb-3">
-                            <div class="text-center">
-                                <button type="button" onclick="{% url 'apploja:telaDeDetalhe' id=produto.id %}"
-                                        class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Comprar
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                    {%endfor%}
-
-                </div>
-
-
-            </div>
+<div class="row">
+    {%for produto in produto_paginado%}
+    {% for estoque in produto.estoque %}
+    <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ estoque.produto.imagem.url }}" class="card-img-top" alt="...">
             <br>
+            <h5 class="card-title" align="center">{{estoque.produto.nome}}</h5>
+            <div class="card-body">
+
+                <div class="text-center">
+                    <button type="button" onclick="{% url 'apploja:telaDeDetalhe' id=produto.id %}"
+                            class="btn btn-primary"> R$ {{estoque.produto.valor}} Comprar <i
+                            class="fas fa-shopping-bag"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        {%endfor%}
     </div>
-    </tbody>
-</table>
+
+    {%endfor%}
+    {%endfor%}
+</div>
+
 
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-end">
