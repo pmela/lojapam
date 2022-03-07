@@ -2,7 +2,6 @@
 {%block menu%}
 {% load static %}
 
-
 <div class="col align-self-start">
 
     <div class="row">
@@ -12,7 +11,8 @@
                     {%for estoque in estoques%}
                     <h5 class="card-title" align="center">{{estoque.nome}}</h5>
                     {%endfor%}
-                    <img align="right" src="{{ produto.imagem.url }}" alt="Card image cap" width="300" height="">
+                    <img align="right" src="{{ produto.imagem.url }}" alt="Card image cap" width="300"
+                         height="">
                 </div>
             </div>
         </div>
@@ -55,6 +55,9 @@
             </div>
         </div>
     </div>
-    {%endblock%}
+</div>
+
+
+{%endblock%}
 
 

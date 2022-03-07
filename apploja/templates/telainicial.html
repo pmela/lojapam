@@ -56,10 +56,10 @@
             <div class="card-body">
 
                 <div class="text-center">
-                    <button type="button" onclick="{% url 'apploja:telaDeDetalhe' id=produto.id %}"
+                    <a type="button" href="{% url 'apploja:telaDeDetalhe' id=produto.id %}"
                             class="btn btn-primary"> R$ {{estoque.produto.valor}} Comprar <i
                             class="fas fa-shopping-bag"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
